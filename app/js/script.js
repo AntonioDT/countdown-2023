@@ -68,4 +68,6 @@ function initSwiper() {
       el: '.swiper-scrollbar',
     },
   });
+  let swiperContainer = document.getElementsByClassName('swiper-container')[0];
+  swiperContainer.style.display = 'block';
 }

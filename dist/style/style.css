@@ -181,6 +181,7 @@ h1, h2, h3, p {
 
 .swiper-container {
   margin-top: 50px;
+  display: none;
 }
 
 .swiper-title {
