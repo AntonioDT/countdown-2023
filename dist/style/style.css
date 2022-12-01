@@ -37,7 +37,7 @@ h1, h2, h3, p {
 }
 
 .countdown-container {
-  margin: 10px auto;
+  margin: 50px auto;
   max-width: 500px;
   gap: 10px;
   display: -webkit-box;
