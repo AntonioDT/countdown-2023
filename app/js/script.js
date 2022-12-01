@@ -1,7 +1,11 @@
 const deadline = '2023-01-01';
+let DATA;
+
+
 
 window.addEventListener('load', () => {
   initSwiper();
+  getData();
   let days = document.getElementById('days');
   let hours = document.getElementById('hours');
   let minutes = document.getElementById('minutes');
@@ -68,6 +72,24 @@ function initSwiper() {
       el: '.swiper-scrollbar',
     },
   });
-  let swiperContainer = document.getElementsByClassName('swiper-container')[0];
-  swiperContainer.style.display = 'block';
+  
+}
+
+function getData() {
+  $.getJSON("./app/data.json", function(json) {
+    let swiperwrapper = document.getElementsByClassName('swiper-wrapper')[0];
+    let swiperContainer = document.getElementsByClassName('swiper-container')[0];
+    DATA = json;
+    DATA.forEach(imgName => {
+      let slide = document.createElement('div');
+      slide.classList.add('swiper-slide');
+      let img = document.createElement('img');
+      img.src = `./assets/${imgName}`;
+      img.alt = 'foto ricordo';
+      img.classList.add('swiper-picture');
+      slide.appendChild(img);
+      swiperwrapper.appendChild(slide);
+    })
+    swiperContainer.style.display = 'block';
+});
 }
