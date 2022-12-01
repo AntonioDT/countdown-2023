@@ -1,6 +1,7 @@
 const deadline = '2023-01-01';
 
 window.addEventListener('load', () => {
+  initSwiper();
   let days = document.getElementById('days');
   let hours = document.getElementById('hours');
   let minutes = document.getElementById('minutes');
@@ -44,4 +45,27 @@ function stopCountDown(intervalId, remainingTime) {
     remainingTime.seconds == 0) {
         clearInterval(intervalId);
     }
+}
+
+function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    loop: false,
+    spaceBetween: 20,
+    slidesPerView: 'auto',
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
 }
